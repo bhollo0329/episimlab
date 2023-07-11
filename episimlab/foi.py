@@ -1,7 +1,7 @@
 import xarray as xr
 import xsimlab as xs
 from .utils import any_negative, suffixed_dims, group_dict_by_var
-from collections import Sequence
+from collections.abc import Sequence
 
 
 @xs.process
