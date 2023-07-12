@@ -96,7 +96,7 @@ class ComptModel:
         # set k to infinite if denominator is zero
         k = (u_state / sum_wt).fillna(np.Inf)
         # assert np.all(sum_wt), f"u_state={u_state}\nsum_wt={sum_wt}\nk={k}"
-        return xr.ufuncs.minimum(k, xr.ones_like(k))
+        return np.minimum(k, xr.ones_like(k))
 
     def edge_to_tm(self, *edges, k=1.) -> None:
         """Applies to the transition matrix (TM) the weight of directed edges
