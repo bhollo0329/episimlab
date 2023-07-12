@@ -127,7 +127,7 @@ class SetupStateWithRiskFromCSV(SetupToyState):
             risk=self.coords['risk']))
         )
         # sanity checks
-        assert not dac.isnull().any()
+        assert not dac.isnull().any() f"{dac.isnull().any()}"
         assert all(zcta in dac.coords['vertex'] for zcta in da.coords['vertex'].values)
 
         # breakpoint()
