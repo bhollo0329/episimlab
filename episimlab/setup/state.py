@@ -160,7 +160,7 @@ class SetupStateWithRiskFromCSV(SetupToyState):
             self.census_fp, dtype={'GEOID': str}
         ).drop('Unnamed: 0', axis=1).rename(columns={'GEOID': 'vertex', 'age_bin': 'age'})
         assert not df.isna().any().any(), ('found null values in df', df.isna().any())
-        df.rename(columns={'GEOID': 'vertex', 'age_bin': 'age', 'estimate': 'group_pop'}, inplace=True)
+        df.rename(columns={'GEOID': 'vertex', 'age_bin': 'age'}, inplace=True)
         df.set_index(['vertex', 'age', 'risk'], inplace=True)
         # filter to zcta that we want to model in the simulation (vertex coords)
         df = df.loc[self.coords['vertex']]
